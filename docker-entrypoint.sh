@@ -7,6 +7,11 @@ chown -R postgres:postgres \
   /var/log/supervisor \
   /etc/scripts
 
+# remove files if exist from previous run
+rm -f /var/run/postgresql/.s.PGSQL.5432 \
+	/var/run/postgresql/.s.PGSQL.5432.lock \
+	/var/lib/postgresql/data/postmaster.pid
+
 if [ $# -eq 0 ]
   then
     echo "No arguments supplied - running pg-dock"

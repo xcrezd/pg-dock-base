@@ -7,6 +7,11 @@ chown -R postgres:postgres \
   /var/log/supervisor \
   /etc/scripts
 
+if [ -f  /home/postgres/.ssh/id_rsa ]
+then
+	chmod 0600 /home/postgres/.ssh/id_rsa
+fi
+
 # remove files if exist from previous run
 rm -f /var/run/postgresql/.s.PGSQL.5432 \
 	/var/run/postgresql/.s.PGSQL.5432.lock \

@@ -20,6 +20,7 @@ rm -f /var/run/postgresql/.s.PGSQL.5432 \
 if [ $# -eq 0 ]
   then
     echo "No arguments supplied - running pg-dock"
+    . /etc/scripts/helpers/setup-wale.sh
     gosu postgres supervisord
   else
     exec "$@"
